@@ -1,6 +1,6 @@
-## **Introduction :**
 - *machine* : https://app.hackthebox.com/machines/Titanic.
 - *Difficulty*: Easy.
+## **Introduction :**
 this writeup details the process to exploit Titanic machine on HackTheBox , By enumerating services on ports 80 and 20 , we discover **Directory Traversal** vulnerability , and Gitea on a subdomain , that enable us retrieve credential for developer user , after logging in via a SSH , we found a script that uses vulnerable version of `ImageMagick` (v7.1.1) that we can exploit to escalate privilege to root.
 
 ## **Enumeration :**
