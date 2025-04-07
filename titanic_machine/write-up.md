@@ -1,6 +1,6 @@
 ## **Introduction :**
-*machine* : https://app.hackthebox.com/machines/Titanic
-*Difficulty:* Easy
+*machine* : https://app.hackthebox.com/machines/Titanic.
+*Difficulty:* Easy.
 this writeup details the process to exploit Titanic machine on HackTheBox , By enumerating services on ports 80 and 20 , we discover **Directory Traversal** vulnerability , and Gitea on a subdomain , that enable us retrieve credential for developer user , after logging in via a SSH , we found a script that uses vulnerable version of `ImageMagick` (v7.1.1) that we can exploit to escalate privilege to root.
 
 ## **Enumeration :**
@@ -90,7 +90,7 @@ access_token               org_user
 ### Cracking the passwords :
 
 - we can use `hashcat` tool to crack the password.
-- first we need to convert them to base64 by using this ![script](https://github.com/Mgh-Zakariae/hackthebox-writeups/blob/2f3cc9ed0aaed3a050e6f451f0440268a838b027/titanic_machine/hashcat_forma_PBKDF2.py)
+- first we need to convert them to base64 by using this [script](https://github.com/Mgh-Zakariae/hackthebox-writeups/blob/2f3cc9ed0aaed3a050e6f451f0440268a838b027/titanic_machine/hashcat_forma_PBKDF2.py)
 - create a file named `hashes.txt` with hash and salt with the format `sha256:50000:salt:hash`
 - the run `hashcat` to find plaintext password for developer : `hashcat.exe -m 10900 -a 0 hashes.txt rockyou.txt`
 ### developer shell : 
