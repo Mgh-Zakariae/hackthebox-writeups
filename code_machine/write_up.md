@@ -85,7 +85,7 @@ print(res.stderr)
 ## **Privilege escalation :**
 
 - to escalate privilege , I check if a user exists in the `sudoers` file . I know this by running command `sudo -l` that recover 
-	```bash
+```bash
 	Matching Defaults entries for martin on localhost:
     env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
 
