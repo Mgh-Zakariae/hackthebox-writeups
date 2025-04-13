@@ -1,6 +1,6 @@
 
-*machine* : https://app.hackthebox.com/machines/Code
-*Difficulty:* Easy
+- *machine* : https://app.hackthebox.com/machines/Code
+- *Difficulty:* Easy
 
 ## **Introduction :** 
 This article explains in detail the process of exploiting Code Machine on HackTheBox. By enumerating services on ports 5000 and 22, we find a Python code editor webpage which we can inject malicious code by exploiting the `globals()` function to gain a foothold.
@@ -97,7 +97,7 @@ print(res.stderr)
 - This script used a `task.json` file to define what directories to archive. I realized I could manipulate that file to read directories that I don't have a permission to.
 - the `task.json` that I used is : 
 
-	```json
+```json
 	{
   "destination": "/home/martin/",
   "multiprocessing": true,
