@@ -98,7 +98,7 @@ print(res.stderr)
 - the `task.json` that I used is : 
 
 ```json
-	{
+{
   "destination": "/home/martin/",
   "multiprocessing": true,
   "verbose_log": true,
