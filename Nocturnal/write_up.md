@@ -122,5 +122,5 @@ tcp        0      0 127.0.0.1:8080          0.0.0.0:*               LISTEN      
 ![](https://github.com/Mgh-Zakariae/hackthebox-writeups/blob/77e62cfb8aca84ecf149616b454b08d2f16f74ce/images/15.png)
 
 
-#### 💥💻 LET'S GOOOOOOO — **Nocturnal MACHINE IS PAWNED!** 🏴‍☠️🔥
+# 💥💻 LET'S GOOOOOOO — **Nocturnal MACHINE IS PAWNED!** 🏴‍☠️🔥
 
