@@ -1,5 +1,7 @@
-*machine* : https://app.hackthebox.com/machines/Nocturnal
-*Difficulty:* Easy
+- *machine* : https://app.hackthebox.com/machines/Nocturnal
+- *Difficulty:* Easy
+
+## **Introduction :**
 This article explains in detail the process of exploiting Code Machine on HackTheBox. By enumerating services on ports 80 and 22, we find a webpage for upload the files typr pdf, doc, docx, xls, xlsx, odt. which is vulnerable to **Insecure Direct Object References (IDOR)** in the **view.ph**. 
 ## **Enumeration :**
 ### nmap `scan`:
@@ -82,7 +84,7 @@ privacy.odt: Zip archive, with extra data prepended
 
 ![](https://github.com/Mgh-Zakariae/hackthebox-writeups/blob/77e62cfb8aca84ecf149616b454b08d2f16f74ce/images/12.png)
 
-- in admin.php , we found a code of create Backup that have a blacklist for backup password `[';', '&', '|', '$', ' ', '```', '{', '}', '&&']`, also we can found a path to database in login.php.
+- in admin.php , we found a code of create Backup that have a blacklist for backup password `[';', '&', '|', '$', ' ', '`', '{', '}', '&&']`, also we can found a path to database in login.php.
 - the process of the exploitation is inject a malicious command in password input but without using the characters from blacklist to add  a database file to backup.
 - after analyzing serval inputs and its errors ,we found a correct input `password	backups/backup_2025-04-16.zip	../nocturnal_database	#` (we have a tab key not space) 
 - after install database file we unzip it and open the file by `sqlite3` command , then we can find the table of user that contain 3 important users (tabias, admin, amanda) we tried decrypt its password hash and we found plaintext password for tobias, we can use it to login via SSH.
@@ -112,7 +114,6 @@ tcp        0      0 127.0.0.1:8080          0.0.0.0:*               LISTEN      
 ![](https://github.com/Mgh-Zakariae/hackthebox-writeups/blob/77e62cfb8aca84ecf149616b454b08d2f16f74ce/images/14.png)
 
 - by googling we can find a exploitation, and by use it we can gain root privilege. 
->https://github.com/bipbopbup/CVE-2023-46818-python-exploit
 
 ```bash
 └─# python3 exploit.py http://127.0.0.1:5555 admin PASSWORD 
@@ -121,5 +122,5 @@ tcp        0      0 127.0.0.1:8080          0.0.0.0:*               LISTEN      
 ![](https://github.com/Mgh-Zakariae/hackthebox-writeups/blob/77e62cfb8aca84ecf149616b454b08d2f16f74ce/images/15.png)
 
 
-### 💥💻 LET'S GOOOOOOO — **Nocturnal MACHINE IS PAWNED!** 🏴‍☠️🔥
+#### 💥💻 LET'S GOOOOOOO — **Nocturnal MACHINE IS PAWNED!** 🏴‍☠️🔥
 
